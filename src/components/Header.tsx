@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Header: React.FC = () => {
   return (
@@ -9,9 +10,7 @@ export const Header: React.FC = () => {
           className="mx-auto flex max-w-[1200px] items-baseline justify-start p-5 lg:px-8"
           aria-label="Global"
         >
-          <div className="font-semibold text-lg text-gray-800 mr-10 ml-2">
-            Logo
-          </div>
+          <div className="font-semibold text-lg text-gray-800 mr-10 ml-2">Logo</div>
           <div className="hidden sm:flex sm:gap-x-12">
             <div className="relative">
               <button
@@ -23,12 +22,11 @@ export const Header: React.FC = () => {
               </button>
             </div>
 
-            <a
-              href="#"
+            <Link to={"/users"}
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Users
-            </a>
+            </Link>
             <a
               href="#"
               className="text-sm font-semibold leading-6 text-gray-900"
@@ -39,7 +37,7 @@ export const Header: React.FC = () => {
         </nav>
 
         {/* for mobile */}
-        <div className="sm:hidden" role="dialog" aria-modal="true">
+        <div className="hidden" role="dialog" aria-modal="true">
           <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">

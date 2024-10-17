@@ -1,11 +1,32 @@
-import { Header } from "./components/Header";
-import { Main } from "./pages/Main";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { MainLayout } from "./layouts/main-layout";
+import { UsersList } from "./pages/users-list";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <div>Hello world!</div>,
+  },
+  {
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/users",
+        element: <UsersList />,
+      },
+    ],
+  },
+]);
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
     <>
-      <Header />
-      <Main />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}></RouterProvider>
+      </QueryClientProvider>
     </>
   );
 }
