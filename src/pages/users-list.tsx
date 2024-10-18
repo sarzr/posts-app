@@ -26,7 +26,7 @@ export const UsersList: React.FC = () => {
 
   return (
     <div className="flex justify-center mt-10">
-      <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg mx-3 w-full sm:w-2/3">
+      <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg mx-3 w-full sm:w-1/2">
         <div className="p-4">
           <div className="mb-4 flex items-center justify-between">
             <h5 className="text-slate-800 text-2xl font-semibold mt-2">
@@ -37,6 +37,7 @@ export const UsersList: React.FC = () => {
             {users.map((el) => (
               <UsersCard
                 key={el.id}
+                id={el.id}
                 image={el.image}
                 username={el.username}
                 lastName={el.lastName}

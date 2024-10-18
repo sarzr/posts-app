@@ -6,7 +6,7 @@ export const MainLayout: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="bg-gray-100 border-t border-gray-200 min-h-screen">
+      <div className="bg-[#ebebf8] border-t border-gray-200 min-h-screen w-full flex justify-center">
         <Outlet />
       </div>
     </>

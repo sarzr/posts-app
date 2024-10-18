@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 export const Header: React.FC = () => {
   return (
     <>
-      <header className="bg-white">
+      <header className="bg-gray-50">
         {/* for desktop */}
         <nav
-          className="mx-auto flex max-w-[1200px] items-baseline justify-start p-5 lg:px-8"
+          className="mx-auto flex max-w-[1200px] items-baseline justify-start py-4 px-5 lg:px-8"
           aria-label="Global"
         >
           <div className="font-semibold text-lg text-gray-800 mr-10 ml-2">Logo</div>
