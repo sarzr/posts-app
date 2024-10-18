@@ -21,7 +21,6 @@ export const Header: React.FC = () => {
                 Home
               </button>
             </div>
-
             <Link to={"/users"}
               className="text-sm font-semibold leading-6 text-gray-900"
             >

@@ -28,3 +28,18 @@ export const UsersCard: React.FC<IUser> = ({
     </div>
   );
 };
+
+export const UserCardSkeleton: React.FC = () => {
+  return (
+    <div className="flex items-center justify-between py-5 last:pb-0">
+      <div className="flex items-center gap-x-5">
+        <div className="h-11 w-11 rounded-full bg-gray-300"></div>
+        <div>
+          <div className="bg-gray-300 rounded-lg w-36 h-3"></div>
+          <div className="bg-gray-300 rounded-lg w-64 h-3 mt-3"></div>
+        </div>
+      </div>
+      <div className="bg-gray-300 rounded-lg w-12 h-3"></div>
+    </div>
+  );
+};

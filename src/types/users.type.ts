@@ -1,3 +1,5 @@
+import { IPagination } from "./global.type";
+
 export interface IUser {
   id?: number;
   firstName: string;
@@ -24,4 +26,8 @@ export interface IUser {
 }
 export interface IUsersList {
   users: IUser[];
+}
+export interface IFetchUsersList extends IPagination {
+  page?: string;
+  params?: string;
 }
