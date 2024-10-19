@@ -1,5 +1,5 @@
 import React from "react";
-import { IUserPosts } from "../types/posts";
+import { IUserPosts } from "../types/posts.type";
 import { BiDislike, BiLike } from "react-icons/bi";
 import { IoMdEye } from "react-icons/io";
 import { Link } from "react-router-dom";

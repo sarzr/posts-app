@@ -1,4 +1,4 @@
-import { IUserPostsList } from "../types/posts";
+import { IUserPostsList } from "../types/posts.type";
 import { httpClient } from "./client";
 import { urls } from "./urls";
 

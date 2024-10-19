@@ -1,4 +1,4 @@
-import { IUserPosts } from "./posts";
+import { IPosts } from "./posts.type";
 import { IUser } from "./users.type";
 
 export interface IPagination {
@@ -8,7 +8,7 @@ export interface IPagination {
 }
 
 export interface IUsersPosts {
-  post: IUserPosts;
+  post: IPosts;
   user: IUser;
-  inOneLine?: boolean,
+  inOneLine?: boolean;
 }

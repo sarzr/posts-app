@@ -1,6 +1,6 @@
 import { IPagination } from "./global.type";
 
-export interface IUserPosts {
+export interface IPosts {
   id?: number;
   title?: string;
   body?: string;
@@ -14,7 +14,7 @@ export interface IUserPosts {
   inOneLine?: boolean;
 }
 export interface IUserPostsList {
-  posts: IUserPosts[];
+  posts: IPosts[];
 }
 
 export interface IFetchPostsList extends IPagination {

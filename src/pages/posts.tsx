@@ -33,6 +33,7 @@ export const Posts: React.FC = () => {
         (getPosts.data?.posts || []).map((el) => Number(el.userId))
       ),
     retry: 1,
+    enabled: !!getPosts.data?.posts.length,
   });
 
   useEffect(() => {
@@ -66,7 +67,9 @@ export const Posts: React.FC = () => {
         onClick={() => setPage((prevPage) => prevPage + 1)}
         disabled={getUsers.isError || getUsers.isFetching}
       >
-        {getUsers.isPending ? "Loading..." : "Load More"}
+        {/* {getUsers.isPending ? "Loading..." : ""}
+        {getUsers.isSuccess && "Load More"} */}
+        {getUsers.isLoading || getPosts.isLoading ? "Loading..." : "Load More"}
       </button>
     </div>
   );

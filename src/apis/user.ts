@@ -30,6 +30,6 @@ export const getUsersListByIds: getUsersListByIdsType = async (ids) => {
 type getUserByIdType = (_: number) => Promise<IUser>;
 export const getUserById: getUserByIdType = async (id) => {
   const client = httpClient();
-  const response = await client.get(urls.users.listId(id));
+  const response = await client.get<IUser>(urls.users.listId(id));
   return response.data;
 };
