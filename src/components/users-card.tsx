@@ -13,7 +13,7 @@ export const UsersCard: React.FC<IUser> = ({
 }) => {
   return (
     <Link to={`/users/${id}/posts`}>
-      <div className="flex items-center justify-between py-5">
+      <div className="flex items-center justify-between py-5 border-b border-slate-200">
         <div className="flex items-center gap-x-5">
           <img
             src={image}

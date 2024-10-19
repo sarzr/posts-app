@@ -4,7 +4,9 @@ import { MainLayout } from "./layouts/main-layout";
 import { UsersList } from "./pages/users-list";
 import { ErrorBoundary } from "./components/errorBoundary";
 import { NotFound } from "./pages/404";
+import { Posts } from "./pages/posts";
 import { UserPosts } from "./pages/users-posts";
+import { PostsInfo } from "./pages/postsInfo";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,16 @@ const router = createBrowserRouter([
       {
         path: "/users/:id/posts",
         element: <UserPosts />,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/posts",
+        element: <Posts />,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/posts-info/:id",
+        element: <PostsInfo />,
         errorElement: <ErrorBoundary />,
       },
       {

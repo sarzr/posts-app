@@ -2,7 +2,10 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getUserPosts } from "../apis/user-posts";
 import { useParams } from "react-router-dom";
-import { UserPostsCard } from "../components/user-posts-card";
+import {
+  UserPostsCardSkeleton,
+  UsersPostsCard,
+} from "../components/user-posts-card";
 
 export const UserPosts: React.FC = () => {
   const { id } = useParams();
@@ -14,10 +17,12 @@ export const UserPosts: React.FC = () => {
     enabled: validId,
   });
   return (
-    <div className="flex flex-col items-center justify-center gap-8 mx-auto">
-      <p className="text-2xl font-semibold w-full sm:w-1/2 text-left">User Posts</p>
+    <div className="flex flex-col items-center mt-10 gap-8 w-full">
+      <p className="text-2xl font-semibold w-full sm:w-1/2 text-left">
+        User Posts
+      </p>
       {fetchingUserPosts.data?.posts.map((el) => (
-        <UserPostsCard
+        <UsersPostsCard
           key={el.id}
           title={el.title}
           body={el.body}
@@ -26,6 +31,8 @@ export const UserPosts: React.FC = () => {
           tags={el.tags}
         />
       ))}
+      {fetchingUserPosts.isLoading &&
+        [1, 2, 3, 4].map((index) => <UserPostsCardSkeleton key={index} />)}
     </div>
   );
 };

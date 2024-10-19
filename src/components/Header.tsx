@@ -10,7 +10,9 @@ export const Header: React.FC = () => {
           className="mx-auto flex max-w-[1200px] items-baseline justify-start py-4 px-5 lg:px-8"
           aria-label="Global"
         >
-          <div className="font-semibold text-lg text-gray-800 mr-10 ml-2">Logo</div>
+          <div className="font-semibold text-lg text-gray-800 mr-10 ml-2">
+            Logo
+          </div>
           <div className="hidden sm:flex sm:gap-x-12">
             <div className="relative">
               <button
@@ -21,17 +23,18 @@ export const Header: React.FC = () => {
                 Home
               </button>
             </div>
-            <Link to={"/users"}
+            <Link
+              to={"/users"}
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Users
             </Link>
-            <a
-              href="#"
+            <Link
+              to={"/posts"}
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Posts
-            </a>
+            </Link>
           </div>
         </nav>
 
@@ -42,24 +45,21 @@ export const Header: React.FC = () => {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   <div className="mt-2 space-y-2" id="disclosure-1">
-                    <a
-                      href="#"
-                      className="block rounded-lg py-2 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    >
+                    <button className="block rounded-lg py-2 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                       Home
-                    </a>
-                    <a
-                      href="#"
+                    </button>
+                    <Link
+                      to={"/users"}
                       className="block rounded-lg py-2 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       Users
-                    </a>
-                    <a
-                      href="#"
+                    </Link>
+                    <Link
+                      to={"/posts"}
                       className="block rounded-lg py-2 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       Posts
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
