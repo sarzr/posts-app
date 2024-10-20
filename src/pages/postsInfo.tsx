@@ -36,17 +36,22 @@ export const PostsInfo: React.FC = () => {
         {[1, 2, 3].map((index) => (
           <UsersPostsCardSkeleton key={index} />
         ))}
-        <div className="text-lg font-semibold text-slate-800 flex gap-2 items-end justify-center mb-6">
-          loading...
-          <Spinner />
+        <div className="text-base font-semibold text-slate-800 flex gap-1 items-end justify-center mb-6">
+          loading
+          <Spinner className="w-4 h-4" />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="mt-14 w-full sm:w-2/3 md:w-1/2">
-      <PostsCard user={usersById.data} post={postsById.data} />
+    <div className="mt-14 w-full sm:w-2/3 md:w-1/2 mx-5 lg:mx-0">
+      <PostsCard
+        user={usersById.data}
+        post={postsById.data}
+        inOneLine={false}
+        hasComment={true}
+      />
     </div>
   );
 };

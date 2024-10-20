@@ -21,6 +21,7 @@ export const Posts: React.FC = () => {
         tag: searchParams.get("tag") || undefined,
       }),
     retry: 1,
+    refetchOnWindowFocus: false,
   });
 
   const getUsers = useQuery({
@@ -34,7 +35,13 @@ export const Posts: React.FC = () => {
       ),
     retry: 1,
     enabled: !!getPosts.data?.posts.length,
+    refetchOnWindowFocus: false,
   });
+
+  useEffect(() => {
+    setData([]);
+    setPage(1);
+  }, [searchParams]);
 
   useEffect(() => {
     if (!getPosts.data && !getUsers.data) return;
@@ -63,12 +70,10 @@ export const Posts: React.FC = () => {
       {getUsers.isLoading &&
         [1, 2, 3, 4, 5].map((index) => <UsersPostsCardSkeleton key={index} />)}
       <button
-        className="border-none flex justify-center w-full text-gray-600 font-semibold text-sm mt-4 mb-6 cursor-pointer disabled:cursor-auto"
+        className="border-none outline-none flex justify-center w-full text-gray-600 font-semibold text-sm mt-4 mb-6 cursor-pointer disabled:cursor-auto"
         onClick={() => setPage((prevPage) => prevPage + 1)}
         disabled={getUsers.isError || getUsers.isFetching}
       >
-        {/* {getUsers.isPending ? "Loading..." : ""}
-        {getUsers.isSuccess && "Load More"} */}
         {getUsers.isLoading || getPosts.isLoading ? "Loading..." : "Load More"}
       </button>
     </div>

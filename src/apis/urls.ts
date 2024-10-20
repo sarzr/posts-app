@@ -6,7 +6,10 @@ export const urls = {
   },
   posts: {
     list: "/posts",
-    postsListTags: (tag: string) => `/users/tag/${tag}`,
+    postsListTags: (tag: string) => `/posts/tag/${tag}`,
     listId: (id: number) => `/posts/${id}`,
+  },
+  comments: {
+    byPostId: (id: number) => `/comments/post/${id}`,
   },
 };

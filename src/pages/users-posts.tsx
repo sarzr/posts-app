@@ -29,6 +29,7 @@ export const UserPosts: React.FC = () => {
           reactions={el.reactions}
           views={el.views}
           tags={el.tags}
+          inOneLine={false}
         />
       ))}
       {fetchingUserPosts.isLoading &&

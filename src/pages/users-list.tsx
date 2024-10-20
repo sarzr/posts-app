@@ -26,7 +26,7 @@ export const UsersList: React.FC = () => {
 
   return (
     <div className="flex justify-center mt-10 w-full">
-      <div className="flex flex-col h-fit my-6 bg-white shadow-sm rounded-xl mx-3 w-full sm:w-2/3 md:w-1/2">
+      <div className="flex flex-col h-fit my-6 bg-white shadow-sm rounded-xl w-full sm:w-2/3 md:w-1/2">
         <div className="p-4">
           <div className="mb-4 flex items-center justify-between">
             <h5 className="text-slate-800 text-2xl font-semibold mt-2">
@@ -49,7 +49,7 @@ export const UsersList: React.FC = () => {
             {getUsers.isLoading &&
               [1, 2, 3, 4, 5].map((index) => <UserCardSkeleton key={index} />)}
             <button
-              className="border-none flex justify-center w-full text-gray-600 font-semibold text-sm mt-4 mb-1 cursor-pointer disabled:cursor-auto"
+              className="border-none flex justify-center w-full text-gray-600 outline-none font-semibold text-sm mt-4 mb-1 cursor-pointer disabled:cursor-auto"
               onClick={() => setPage((prevPage) => prevPage + 1)}
               disabled={getUsers.isError || getUsers.isFetching}
             >

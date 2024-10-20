@@ -11,4 +11,5 @@ export interface IUsersPosts {
   post: IPosts;
   user: IUser;
   inOneLine?: boolean;
+  hasComment?: boolean;
 }

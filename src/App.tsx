@@ -7,11 +7,12 @@ import { NotFound } from "./pages/404";
 import { Posts } from "./pages/posts";
 import { UserPosts } from "./pages/users-posts";
 import { PostsInfo } from "./pages/postsInfo";
+import { PostComments } from "./components/post-comments";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <div>Home page</div>,
     errorElement: <ErrorBoundary />,
   },
   {
@@ -35,6 +36,12 @@ const router = createBrowserRouter([
       {
         path: "/posts-info/:id",
         element: <PostsInfo />,
+        children: [
+          {
+            path: "comments",
+            element: <PostComments />,
+          },
+        ],
         errorElement: <ErrorBoundary />,
       },
       {

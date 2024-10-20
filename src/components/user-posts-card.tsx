@@ -1,28 +1,28 @@
 import React from "react";
-import { IUserPosts } from "../types/posts.type";
+import { IPosts } from "../types/posts.type";
 import { BiDislike, BiLike } from "react-icons/bi";
 import { IoMdEye } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-export const UsersPostsCard: React.FC<IUserPosts> = ({
+export const UsersPostsCard: React.FC<IPosts> = ({
   title,
   body,
   reactions,
   views,
   tags,
-  inOneLine = false,
+  inOneLine = true,
 }) => {
   return (
     <div className="shadow-md bg-white rounded-xl w-full sm:w-1/2 py-4 px-6">
-      <p className="truncate text-gray-700 capitalize text-lg font-semibold pt-3 pb-2">
+      <p className="truncate text-gray-700 capitalize text-lg font-semibold py-2">
         {title}
       </p>
       <p
         className={`text-justify text-sm font-medium text-gray-500 ${
-          inOneLine ? "" : "line-clamp-1"
+          !inOneLine ? "" : "line-clamp-1"
         }`}
       >
-        {inOneLine ? body : body?.slice(0, 300)}
+        {!inOneLine ? body : body?.slice(0, 300)}
       </p>
       <div className="flex flex-wrap pt-4 gap-2">
         {tags?.map((tag, index) => (
