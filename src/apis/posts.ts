@@ -8,10 +8,24 @@ export const getPostsList: getPostsListType = async (params) => {
   const client = httpClient();
   const url = params.tag
     ? urls.posts.postsListTags(params.tag)
+    : params.q
+    ? urls.posts.postsListSearch()
     : urls.posts.list;
+  console.log(url);
+
   const response = await client.get<IUserPostsList>(url, {
-    params: { limit: params.limit || postsListsLimit, skip: params.skip || 0 },
+    params: {
+      limit: params.limit || postsListsLimit,
+      skip: params.skip || 0,
+      tag: params.tag,
+      q: params.q,
+    },
   });
+
+  console.log(params.q);
+
+  console.log(url);
+
   return response.data;
 };
 

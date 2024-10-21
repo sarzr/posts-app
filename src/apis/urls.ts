@@ -8,6 +8,7 @@ export const urls = {
     list: "/posts",
     postsListTags: (tag: string) => `/posts/tag/${tag}`,
     listId: (id: number) => `/posts/${id}`,
+    postsListSearch: () => "/posts/search",
   },
   comments: {
     byPostId: (id: number) => `/comments/post/${id}`,

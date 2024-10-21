@@ -16,7 +16,7 @@ export const ErrorBoundary: React.FC = () => {
   }
 
   return (
-    <div className="mt-12 w-full mx-6">
+    <div className="mt-24 w-full mx-6">
       <p className="text-xl font-medium">Something went wrong!</p>
       <p className="text-base font-medium text-gray-600 mt-2">{(error as Error).message}</p>
     </div>

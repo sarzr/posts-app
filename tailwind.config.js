@@ -7,6 +7,7 @@ export default {
         fit: "-webkit-fill-available",
         20: "20%",
         15: "15%",
+        90: "90%"
       },
       colors: {
         GrayL: "#ebebf8",

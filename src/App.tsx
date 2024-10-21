@@ -41,8 +41,14 @@ const router = createBrowserRouter([
           {
             path: "comments",
             element: <PostComments />,
+            errorElement: <ErrorBoundary />,
           },
         ],
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path:"/posts/search",
+        element: <Posts />,
         errorElement: <ErrorBoundary />,
       },
       {

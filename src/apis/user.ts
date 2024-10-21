@@ -21,7 +21,6 @@ export const getUsersListByIds: getUsersListByIdsType = async (ids) => {
   );
   const data: IUser[] = [];
   for (let res of response) {
-    console.log(res);
     data.push(res.data);
   }
   return data;

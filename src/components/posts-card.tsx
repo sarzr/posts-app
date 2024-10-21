@@ -4,6 +4,7 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { BiDislike, BiLike } from "react-icons/bi";
 import { IoMdEye } from "react-icons/io";
 import { FaRegComment } from "react-icons/fa";
+import { FiBookmark } from "react-icons/fi";
 
 export const PostsCard: React.FC<IUsersPosts> = ({
   user,
@@ -15,7 +16,7 @@ export const PostsCard: React.FC<IUsersPosts> = ({
 
   return (
     <>
-      <div className="shadow-md bg-white rounded-xl w-full py-3 px-4 mb-6">
+      <div className="shadow-md bg-white rounded-xl w-full lg:w-90 py-3 px-4 mb-6">
         <div className="flex items-center gap-3">
           <img
             src={user.image}
@@ -67,14 +68,17 @@ export const PostsCard: React.FC<IUsersPosts> = ({
               <span className="text-xs">{post.views}</span>
             </div>
           </div>
-          {!location.pathname.includes("comments") && hasComment && (
-            <Link to={`comments`}>
-              <div className="text-gray-600 flex gap-x-2">
-                <span className="text-xs text-gray-800">comments</span>
-                <FaRegComment />
-              </div>
-            </Link>
-          )}
+          <div className="flex gap-3 items-center relative top-1">
+            {!location.pathname.includes("comments") && hasComment && (
+              <Link to={`comments`}>
+                <div className="text-gray-600 flex gap-x-2">
+                  <span className="text-xs text-gray-800">comments</span>
+                  <FaRegComment />
+                </div>
+              </Link>
+            )}
+            <FiBookmark className="text-gray-600" />
+          </div>
         </div>
       </div>
       <div className="w-full">
@@ -101,18 +105,23 @@ export const UsersPostsCardSkeleton: React.FC = () => {
           <div key={index} className="bg-gray-300 h-3 w-14 rounded-xl"></div>
         ))}
       </div>
-      <div className="flex items-center pt-5 gap-x-4">
-        <div className="flex items-center gap-x-1 text-gray-600">
-          <BiLike className="w-5 h-5" />
-          <span className="bg-gray-300 h-3 w-8 rounded-xl"></span>
+      <div className="flex items-end justify-between">
+        <div className="flex items-center pt-5 gap-x-4">
+          <div className="flex items-center gap-x-1 text-gray-600">
+            <BiLike className="w-5 h-5" />
+            <span className="bg-gray-300 h-3 w-8 rounded-xl"></span>
+          </div>
+          <div className="flex items-center gap-x-1 text-gray-600">
+            <BiDislike className="w-5 h-5" />
+            <span className="bg-gray-300 h-3 w-8 rounded-xl"></span>
+          </div>
+          <div className="flex items-center gap-x-1 text-gray-600">
+            <IoMdEye className="w-5 h-5 text-gray-500" />
+            <span className="bg-gray-300 h-3 w-8 rounded-xl"></span>
+          </div>
         </div>
-        <div className="flex items-center gap-x-1 text-gray-600">
-          <BiDislike className="w-5 h-5" />
-          <span className="bg-gray-300 h-3 w-8 rounded-xl"></span>
-        </div>
-        <div className="flex items-center gap-x-1 text-gray-600">
-          <IoMdEye className="w-5 h-5 text-gray-500" />
-          <span className="bg-gray-300 h-3 w-8 rounded-xl"></span>
+        <div className="flex gap-3 items-center relative top-1">
+          <FiBookmark className="text-gray-600" />
         </div>
       </div>
     </div>

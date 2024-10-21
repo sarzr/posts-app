@@ -1,14 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa6";
 import { IoNotifications } from "react-icons/io5";
 import { IoLogoGithub } from "react-icons/io";
 
 export const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
+  const [search, setSearch] = React.useState<string>("");
+
+  const navigate = useNavigate();
 
   const onClickMenu = () => {
     setMenuOpen(() => !menuOpen);
+  };
+
+  const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    navigate(`/posts/search?q=${search}`);
   };
 
   return (
@@ -16,7 +24,7 @@ export const Header: React.FC = () => {
       <header className="bg-gray-50 shadow-sm z-10 absolute w-fit">
         {/* for desktop */}
         <nav className="mx-auto sm:flex items-center justify-between py-3 px-5 lg:px-8 hidden">
-          <form>
+          <form onSubmit={onSubmitHandler}>
             <label
               htmlFor="default-search"
               className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -44,16 +52,12 @@ export const Header: React.FC = () => {
               <input
                 type="search"
                 id="default-search"
-                className="block outline-none w-full py-[9px] px-6 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block outline-none w-full py-[9px] pl-9 pr-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search here..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
                 required
               />
-              {/* <button
-                type="submit"
-                className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Search
-              </button> */}
             </div>
           </form>
 
@@ -78,7 +82,7 @@ export const Header: React.FC = () => {
               <IoLogoGithub className="w-5 h-5" />
             </div>
 
-            <form>
+            <form onSubmit={onSubmitHandler}>
               <label
                 htmlFor="default-search"
                 className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -106,16 +110,12 @@ export const Header: React.FC = () => {
                 <input
                   type="search"
                   id="default-search"
-                  className="block outline-none w-full py-[9px] px-6 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="block outline-none w-full py-[9px] pl-9 pr-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Search here..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
                   required
                 />
-                {/* <button
-                type="submit"
-                className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Search
-              </button> */}
               </div>
             </form>
           </div>

@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 export const Home: React.FC = () => {
   return (
     <main className="w-full mx-5 mt-24 mb-9">
-      <div className="flex gap-8">
-        <div className="w-full max-w-md mb-8 p-4 bg-white border border-gray-200 rounded-xl shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className="flex gap-4 xl:gap-8 flex-wrap lg:flex-nowrap justify-center lg:justify-normal md:mx-3">
+        <div className="w-full md:w-3/4 lg:w-2/3 mb-2 lg:mb-8 p-4 bg-white border border-gray-200 rounded-xl shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
           <div className="flex items-center justify-between mb-4">
             <h5 className="text-xl font-semibold leading-none text-gray-900 dark:text-white">
               User List
@@ -137,16 +137,16 @@ export const Home: React.FC = () => {
             </ul>
           </div>
         </div>
-        <div>
+        <div className="w-full md:w-3/4 lg:w-2/3">
           <div className="shadow-md bg-white rounded-xl w-full py-3 mr-6 px-4 mb-6">
             <div className="flex items-center gap-3">
               <img
                 src="../public/images/profile-picture-2.jpg"
                 alt="Michael image"
-                className="w-12 h-12 rounded-full"
+                className="w-9 h-9 sm:w-12 sm:h-12 rounded-full"
               />
               <div className="overflow-hidden">
-                <p className="text-lg font-semibold text-gray-700 capitalize truncate">
+                <p className="sm:text-lg font-semibold text-gray-700 capitalize truncate">
                   Michael Gough
                 </p>
                 <p className="text-xs font-semibold text-gray-500 truncate">
@@ -154,10 +154,10 @@ export const Home: React.FC = () => {
                 </p>
               </div>
             </div>
-            <p className="truncate text-gray-700 capitalize text-lg font-semibold pt-3 pb-1">
+            <p className="truncate text-gray-700 capitalize sm:text-lg font-semibold pt-3 pb-1">
               Dave wasn't exactly sure how he had ended up
             </p>
-            <p className="text-justify text-sm font-medium text-gray-500">
+            <p className="text-justify text-xs sm:text-sm font-medium text-gray-500">
               Dave wasn't exactly sure how he had ended up in this predicament.
               He ran through all the events that had lead to this current
               situation and it still didn't make sense. He wanted to spend some
@@ -192,19 +192,23 @@ export const Home: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="max-w-screen-xl px-4 mx-auto text-center pt-2 lg:px-6">
-            <dl className="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white">
-              <div className="flex flex-col items-center justify-center bg-gray-50 shadow py-8 rounded-lg text-gray-700">
-                <dt className="mb-2 text-2xl md:text-3xl font-medium">80M+</dt>
-                <dd className="dark:text-gray-400">Users</dd>
+          <div className="max-w-screen-xl mx-auto text-center lg:pb-4 xl:pt-3 xl:pb-0 mb-6 lg:px-6 hidden md:block">
+            <dl className="grid max-w-screen-md gap-4 xl:gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white">
+              <div className="flex flex-col items-center justify-center bg-gray-50 shadow py-5 xl:py-6 rounded-lg text-gray-700">
+                <dt className="mb-2 text-xl xl:text-2xl font-medium">80M+</dt>
+                <dd className="dark:text-gray-400 text-sm xl:text-base">
+                  Users
+                </dd>
               </div>
-              <div className="flex flex-col items-center justify-center bg-gray-50 shadow py-8 rounded-lg text-gray-700">
-                <dt className="mb-2 text-2xl md:text-3xl font-medium">145K+</dt>
-                <dd className="dark:text-gray-400">Posts</dd>
+              <div className="flex flex-col items-center justify-center bg-gray-50 shadow py-5 xl:py-6 rounded-lg text-gray-700">
+                <dt className="mb-2 text-xl xl:text-2xl font-medium">145K+</dt>
+                <dd className="dark:text-gray-400 text-sm xl:text-base">
+                  Posts
+                </dd>
               </div>
-              <div className="flex flex-col items-center justify-center bg-gray-50 shadow py-8 rounded-lg text-gray-700">
-                <dt className="mb-2 text-2xl md:text-3xl font-medium">10M+</dt>
-                <dd className="dark:text-gray-400">
+              <div className="flex flex-col items-center justify-center bg-gray-50 shadow py-5 xl:py-6 rounded-lg text-gray-700">
+                <dt className="mb-2 text-xl xl:text-2xl font-medium">10M+</dt>
+                <dd className="dark:text-gray-400 text-sm xl:text-base">
                   contributors
                 </dd>
               </div>
@@ -212,12 +216,12 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex gap-5">
-        <div className="shadow-md w-1/2 bg-white rounded-xl py-4 px-6">
-          <p className="truncate text-gray-700 capitalize text-lg font-semibold py-2">
+      <div className="flex flex-wrap gap-5 lg:flex-nowrap justify-center lg:justify-normal md:mx-3">
+        <div className="shadow-md w-full md:w-3/4 lg:w-1/2 bg-white rounded-xl py-4 px-6">
+          <p className="truncate text-gray-700 capitalize sm:text-lg font-semibold py-2">
             The trees, therefore, must be such old
           </p>
-          <p className="text-justify text-sm font-medium text-gray-500">
+          <p className="text-justify text-xs sm:text-sm font-medium text-gray-500">
             The trees, therefore, must be such old and primitive techniques that
             they thought nothing of them, deeming them so inconsequential that
             even savages like us would know of them and not be suspicious. At
@@ -251,11 +255,11 @@ export const Home: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="shadow-md w-1/2 bg-white rounded-xl py-4 px-6">
-          <p className="truncate text-gray-700 capitalize text-lg font-semibold py-2">
+        <div className="shadow-md w-full md:w-3/4 lg:w-1/2 bg-white rounded-xl py-4 px-6">
+          <p className="truncate text-gray-700 capitalize sm:text-lg font-semibold py-2">
             I'm going to hire professional help tomorrow.
           </p>
-          <p className="text-justify text-sm font-medium text-gray-500">
+          <p className="text-justify text-xs sm:text-sm font-medium text-gray-500">
             I'm going to hire professional help tomorrow. I can't handle this
             anymore. She fell over the coffee table and now there is blood in
             her catheter. This is much more than I ever signed up to do. I'm

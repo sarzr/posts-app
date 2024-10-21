@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getPostsList } from "../apis/posts";
 import { postsListsLimit } from "../utils/config";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { getUsersListByIds } from "../apis/user";
 import { IUsersPosts } from "../types/global.type";
 import { PostsCard, UsersPostsCardSkeleton } from "../components/posts-card";
@@ -14,11 +14,17 @@ export const Posts: React.FC = () => {
   const [searchParams] = useSearchParams();
 
   const getPosts = useQuery({
-    queryKey: ["get-all-posts", page, searchParams.get("tag")],
+    queryKey: [
+      "get-all-posts",
+      page,
+      searchParams.get("tag"),
+      searchParams.get("q"),
+    ],
     queryFn: () =>
       getPostsList({
         skip: page * postsListsLimit - postsListsLimit,
         tag: searchParams.get("tag") || undefined,
+        q: searchParams.get("q") || undefined,
       }),
     retry: 1,
     refetchOnWindowFocus: false,
@@ -44,6 +50,11 @@ export const Posts: React.FC = () => {
   }, [searchParams]);
 
   useEffect(() => {
+    if (!getPosts.isError || !getPosts.error) return;
+    <Navigate to="/404" />;
+  }, [getPosts.isError, getPosts.error]);
+
+  useEffect(() => {
     if (!getPosts.data && !getUsers.data) return;
     if (!getPosts.isSuccess && !getUsers.isSuccess) return;
 
@@ -61,7 +72,9 @@ export const Posts: React.FC = () => {
 
   return (
     <div className="mt-24 w-full md:w-2/3 xl:w-1/2">
-      <h5 className="text-slate-800 text-2xl font-semibold mb-4">Posts List</h5>
+      <h5 className="text-slate-800 text-2xl font-semibold mb-4">
+        {getUsers.isSuccess ? "Posts List" : ""}
+      </h5>
       {data.map((el, index) => (
         <Link key={index} to={`/posts-info/${el.post.id}`}>
           <PostsCard user={el.user} post={el.post} />
@@ -74,7 +87,8 @@ export const Posts: React.FC = () => {
         onClick={() => setPage((prevPage) => prevPage + 1)}
         disabled={getUsers.isError || getUsers.isFetching}
       >
-        {getUsers.isLoading || getPosts.isLoading ? "Loading..." : "Load More"}
+        {getUsers.isFetching ? "Loading..." : ""}
+        {getUsers.isSuccess ? "Load more" : ""}
       </button>
     </div>
   );

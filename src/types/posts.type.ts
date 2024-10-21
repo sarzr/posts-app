@@ -20,4 +20,5 @@ export interface IUserPostsList {
 export interface IFetchPostsList extends IPagination {
   params?: string;
   tag?: string;
+  q?: string;
 }
