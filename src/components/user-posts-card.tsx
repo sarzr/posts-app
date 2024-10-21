@@ -13,7 +13,7 @@ export const UsersPostsCard: React.FC<IPosts> = ({
   inOneLine = true,
 }) => {
   return (
-    <div className="shadow-md bg-white rounded-xl w-full sm:w-1/2 py-4 px-6">
+    <div className="shadow-md bg-white rounded-xl w-full py-4 px-6">
       <p className="truncate text-gray-700 capitalize text-lg font-semibold py-2">
         {title}
       </p>
@@ -53,7 +53,7 @@ export const UsersPostsCard: React.FC<IPosts> = ({
 
 export const UserPostsCardSkeleton: React.FC = () => {
   return (
-    <div className="shadow-md bg-white rounded-xl w-full sm:w-1/2 py-4 px-6">
+    <div className="shadow-md bg-white rounded-xl w-full py-4 px-6">
       <div className="truncate bg-gray-300 h-3 w-44 rounded-full mt-5"></div>
       <div className="text-justify bg-gray-300 line-clamp-1 h-3 w-full rounded-full mt-4"></div>
       <div className="flex flex-wrap pt-5 gap-2">

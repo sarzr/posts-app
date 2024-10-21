@@ -1,70 +1,158 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaBars } from "react-icons/fa6";
+import { IoNotifications } from "react-icons/io5";
+import { IoLogoGithub } from "react-icons/io";
 
 export const Header: React.FC = () => {
+  const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
+
+  const onClickMenu = () => {
+    setMenuOpen(() => !menuOpen);
+  };
+
   return (
     <>
-      <header className="bg-gray-50">
+      <header className="bg-gray-50 shadow-sm z-10 absolute w-fit">
         {/* for desktop */}
-        <nav
-          className="mx-auto flex max-w-[1200px] items-baseline justify-start py-4 px-5 lg:px-8"
-          aria-label="Global"
-        >
-          <div className="font-semibold text-lg text-gray-800 mr-10 ml-2">
-            Logo
-          </div>
-          <div className="hidden sm:flex sm:gap-x-12">
+        <nav className="mx-auto sm:flex items-center justify-between py-3 px-5 lg:px-8 hidden">
+          <form>
+            <label
+              htmlFor="default-search"
+              className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            >
+              Search
+            </label>
             <div className="relative">
-              <button
-                type="button"
-                className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900"
-                aria-expanded="false"
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg
+                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="search"
+                id="default-search"
+                className="block outline-none w-full py-[9px] px-6 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Search here..."
+                required
+              />
+              {/* <button
+                type="submit"
+                className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
-                Home
-              </button>
+                Search
+              </button> */}
             </div>
-            <Link
-              to={"/users"}
-              className="text-sm font-semibold leading-6 text-gray-900"
+          </form>
+
+          <div className="text-gray-500 flex gap-4 items-center">
+            <IoNotifications className="w-5 h-5" />
+            <IoLogoGithub className="w-5 h-5" />
+            <a
+              href="#"
+              className="text-gray-800 ml-1 text-sm font-medium py-1 px-3 rounded-full bg-gray-200"
             >
-              Users
-            </Link>
-            <Link
-              to={"/posts"}
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Posts
-            </Link>
+              Login
+            </a>
           </div>
         </nav>
 
         {/* for mobile */}
-        <div className="hidden" role="dialog" aria-modal="true">
-          <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-2 py-6">
-                  <div className="mt-2 space-y-2" id="disclosure-1">
-                    <button className="block rounded-lg py-2 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                      Home
-                    </button>
-                    <Link
-                      to={"/users"}
-                      className="block rounded-lg py-2 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    >
-                      Users
-                    </Link>
-                    <Link
-                      to={"/posts"}
-                      className="block rounded-lg py-2 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    >
-                      Posts
-                    </Link>
+        <div className="sm:hidden mx-auto max-w-[1200px] py-3 px-5 lg:px-8">
+          <div className="flex justify-between items-center gap-6">
+            <div className="text-gray-500 flex gap-4 items-center">
+              <FaBars onClick={onClickMenu} className="cursor-pointer" />
+              <IoNotifications className="w-5 h-5" />
+              <IoLogoGithub className="w-5 h-5" />
+            </div>
+
+            <form>
+              <label
+                htmlFor="default-search"
+                className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+              >
+                Search
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                  <svg
+                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="search"
+                  id="default-search"
+                  className="block outline-none w-full py-[9px] px-6 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search here..."
+                  required
+                />
+                {/* <button
+                type="submit"
+                className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Search
+              </button> */}
+              </div>
+            </form>
+          </div>
+
+          {menuOpen && (
+            <div className="w-full bg-white sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+              <div className="flow-root">
+                <div className="-my-6 divide-y divide-gray-500/10">
+                  <div className="space-y-2 py-6">
+                    <div className="mt-2 space-y-2" id="disclosure-1">
+                      <button className="block rounded-lg py-2 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                        Home
+                      </button>
+                      <Link
+                        to={"/users"}
+                        className="block rounded-lg py-2 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      >
+                        Users
+                      </Link>
+                      <Link
+                        to={"/posts"}
+                        className="block rounded-lg py-2 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      >
+                        Posts
+                      </Link>
+                      <a
+                        href="#"
+                        className="block rounded-lg py-2 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      >
+                        Login
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </header>
     </>

@@ -32,7 +32,7 @@ export const PostsInfo: React.FC = () => {
   }
   if (!usersById.data || !postsById.data) {
     return (
-      <div className="mt-12 w-full sm:w-2/3 md:w-1/2">
+      <div className="mt-24 w-full sm:w-2/3 md:w-1/2">
         {[1, 2, 3].map((index) => (
           <UsersPostsCardSkeleton key={index} />
         ))}
@@ -45,7 +45,7 @@ export const PostsInfo: React.FC = () => {
   }
 
   return (
-    <div className="mt-14 w-full sm:w-2/3 md:w-1/2 mx-5 lg:mx-0">
+    <div className="mt-24 w-full md:w-2/3 xl:w-1/2 mx-5 lg:mx-0">
       <PostsCard
         user={usersById.data}
         post={postsById.data}

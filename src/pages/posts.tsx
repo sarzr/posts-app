@@ -60,7 +60,7 @@ export const Posts: React.FC = () => {
   }, [getPosts.data, getUsers.data, getPosts.isSuccess, getUsers.isSuccess]);
 
   return (
-    <div className="mt-14 w-full sm:w-2/3 md:w-1/2">
+    <div className="mt-24 w-full md:w-2/3 xl:w-1/2">
       <h5 className="text-slate-800 text-2xl font-semibold mb-4">Posts List</h5>
       {data.map((el, index) => (
         <Link key={index} to={`/posts-info/${el.post.id}`}>

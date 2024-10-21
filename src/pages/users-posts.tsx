@@ -17,8 +17,8 @@ export const UserPosts: React.FC = () => {
     enabled: validId,
   });
   return (
-    <div className="flex flex-col items-center mt-10 gap-8 w-full">
-      <p className="text-2xl font-semibold w-full sm:w-1/2 text-left">
+    <div className="flex flex-col items-center mt-24 mb-8 gap-8 w-full md:w-2/3 xl:w-1/2">
+      <p className="text-2xl font-semibold w-full text-left">
         User Posts
       </p>
       {fetchingUserPosts.data?.posts.map((el) => (

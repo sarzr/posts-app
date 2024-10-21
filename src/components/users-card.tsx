@@ -29,7 +29,7 @@ export const UsersCard: React.FC<IUser> = ({
             </p>
           </div>
         </div>
-        <h6 className="text-slate-600 text-sm hidden sm:block">{role}</h6>
+        <h6 className="text-slate-600 text-sm">{role}</h6>
       </div>
     </Link>
   );

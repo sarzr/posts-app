@@ -8,16 +8,17 @@ import { Posts } from "./pages/posts";
 import { UserPosts } from "./pages/users-posts";
 import { PostsInfo } from "./pages/postsInfo";
 import { PostComments } from "./components/post-comments";
+import { Home } from "./pages/home";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <div>Home page</div>,
-    errorElement: <ErrorBoundary />,
-  },
-  {
     element: <MainLayout />,
     children: [
+      {
+        path: "/",
+        element: <Home />,
+        errorElement: <ErrorBoundary />,
+      },
       {
         path: "/users",
         element: <UsersList />,

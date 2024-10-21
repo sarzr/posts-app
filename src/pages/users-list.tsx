@@ -25,8 +25,8 @@ export const UsersList: React.FC = () => {
   }, [getUsers.isSuccess, getUsers.data]);
 
   return (
-    <div className="flex justify-center mt-10 w-full">
-      <div className="flex flex-col h-fit my-6 bg-white shadow-sm rounded-xl w-full sm:w-2/3 md:w-1/2">
+    <div className="flex justify-center mt-20 mb-4 w-full">
+      <div className="flex flex-col h-fit my-6 bg-white shadow-sm rounded-xl w-full md:w-2/3 xl:w-1/2">
         <div className="p-4">
           <div className="mb-4 flex items-center justify-between">
             <h5 className="text-slate-800 text-2xl font-semibold mt-2">
